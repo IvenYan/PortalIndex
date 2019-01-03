@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html><head>
+<!--  xmlns:th="http://www.w3.org/1999/xhtml" delegate-events="click" -->
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="height=device-height">
+    <title>Lenovo Integration WSO2 Portal</title>
+    <!-- <link rel="icon" type="image/x-icon" href="http://localhost:8011/wso2/images/lenovo_ico.jpg"> -->
+    <!-- <link rel="stylesheet" href="LenovoIntegrationWSO2Portal_files/bootstrap.css"> -->
+    <link rel="stylesheet" href="LenovoIntegrationWSO2Portal_files/wso2.css">
+    <!-- <script src="LenovoIntegrationWSO2Portal_files/jquery.js"></script>
+    <script src="LenovoIntegrationWSO2Portal_files/bootstrap.js"></script> -->
+    <script src="LenovoIntegrationWSO2Portal_files/avalon.js"></script>
+
+    <!-- Add deponding on Modal -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+	
+
+	<!-- Add by yankun at 2018-10-19-->
+	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<!-- <link rel="stylesheet" href="assets/materialize/css/materialize.updatebyyankun.css" media="screen,projection" /> -->
+	<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+	
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="assets/materialize/css/materialize.min.css" media="screen,projection" />
+    <!-- Bootstrap Styles-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FontAwesome Styles-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- Morris Chart Styles-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- Custom Styles-->
+    <link href="assets/css/custom-styles.css" rel="stylesheet" />
+    <!-- Google Fonts-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="assets/js/Lightweight-Chart/cssCharts.css"> 
+<style type="text/css">
+
+footer{
+	flex: 0 0 auto;
+    background: black;
+}
+li{
+	margin-bottom:5px;list-style:none
+}
+li img{
+	margin-right:10px;
+	height:23px;
+}
+#menu_function_content .btn{
+	margin-bottom:5px;
+}
+
+
+</style>
+
+	
+</head>
+<body style="font-size:14px;">
+	<!-- Header  -->
+	<header style="height:75px;background:black;"  class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+		<div style="height:60px;margin-top:20px;" class="container">
+			<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                WSO2
+            </button>
+			<a href="#" class="navbar-brand" style="padding: 3px"><img src="LenovoIntegrationWSO2Portal_files/WSO2.jpg" style="height: 44px;width:150px;" alt="WSO2">
+			</a>
+		</div>
+	</header>
+	<!-- Header  -->
+
+	<!-- Body -->
+	<div class="container bs-docs-container" style="margin-top:83px;">
+		<!-- Row -->
+		<div class="row">
+			<!-- Left menu -->
+			<div class="col-md-5">
+				<!-- 功能区 -->
+				<div class="well" id="menu_function">
+					<div class="card-action" id="menu_function_action" ><h4 style="margin-bottom:2%;">功能区</h4></div>
+					<div class="card-content" id="menu_function_content">
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-success" onclick="show_more_content('body-content-1');" >展示更多内容</button>
+							<button type="submit" class="btn btn-toolbar" onclick="show_right_div_content('body-content-memo-add')">新建便笺</button>
+							<button type="submit" class="btn btn-default" onclick="clear_message_context('self_message');" >展示便笺</button>
+							<button type="submit" class="btn btn-primary" onclick="saveStorage('self_message','wso2_global_board')">新建便笺</button>
+							<button type="submit" class="btn btn-danger" onclick="clear_message_context('self_message');" >展示便笺</button>
+							<button type="submit" class="btn btn-info" id="boby_message_board_button" onclick="show_right_div_content('body_message_board');" >显示留言板</button>
+							<button type="submit" class="btn btn-toolbar" onclick="clear_message_context('self_message');" >显示更多...</button>
+						</div>
+					</div>
+				</div>
+				<!-- 功能区 -->
+				<!-- body menu -->
+				<div class="panel-group" id="accordion">
+					<!-- Menu 1 -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseTest" class="" aria-expanded="true">
+	                            WSO2 LICRM,LSCRM,ECC,LOGMON 测试环境
+	                        	</a>
+	                        </h3>
+	                    </div>
+						<div id="collapseTest" class="panel-collapse collapse" aria-expanded="true" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseT1Ul">
+							<a href="https://soa-test.lenovo.com:5443/iadapter/licrm/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter LICRM</li></a>
+	                        <a href="https://soa-test.lenovo.com:5443/iadapter/lscrm/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter LSCRM</li></a>
+	                        <a href="https://soa-test.lenovo.com:5443/iadapter/ecc/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter ECC</li></a>
+	                        <a href="https://bltwsbam01.lenovo.com:9443/portal/login?loginAttempt=true&destination=/portal/dashboards/esb-monitor/" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/das_logo.png">WSO2 Portal </li></a>
+							<a href="https://soa-test.lenovo.com:5443/logmon/app/kibana#/discover?_g=()" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/kibana_circular.jpg">WSO2 LogMonitor </li></a>
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 1 -->
+					<!-- Menu 2 -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseT1" class="" aria-expanded="true">
+	                            	WSO2 UAT(T1)测试环境
+	                        	</a>
+	                    	</h3>
+	                    </div>
+						<!--默认展开的配置 <div id="collapseT1" class="panel-collapse collapse in" aria-expanded="true" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseT1Ul"> -->
+						<div id="collapseT1" class="panel-collapse collapse" aria-expanded="true" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseT1Ul">
+							<a target="_blank" href="https://uat-apm.api.lenovo.com:5443/carbon/"><li ><img src="LenovoIntegrationWSO2Portal_files/am_logo.gif">WSO2 API Manager</li></a>
+							<a target="_blank" href="https://uat.api.lenovo.com:5443/publisher/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Publisher</li></a>
+							<a target="_blank" href="https://uat.api.lenovo.com:5443/store/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Store</li></a>
+							<a href="https://uat.soa.lenovo.com:5443/esb/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/esb_logo.gif">WSO2 ESB</li></a>
+							<a href="https://uat.soa.lenovo.com:5443/dss/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/dss_logo.gif">WSO2 DSS</li></a>
+							<a href="https://uat.soa.lenovo.com:5443/task/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 TASK</li></a>
+							<a href="https://uat.soa.lenovo.com:5443/iadapter/file/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter File</li></a>
+							<a href="https://uat.soa.lenovo.com:5443/iadapter/mq/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter MQ</li></a>
+							<a href="https://uat.soa.lenovo.com:5443/iadapter/apps/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter APPS (SalesForce)</li></a>
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 2 -->	
+					<!-- Menu 3 -->	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseT2" class="collapsed" aria-expanded="false">
+									WSO2 PRE(T2)测试环境
+								</a>
+							</h3>
+						</div>
+						<div id="collapseT2" class="panel-collapse collapse" aria-expanded="true" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseT1Ul">
+							<a target="_blank" href="https://pre-apm.api.lenovo.com:5443/carbon/"><li  ><img src="LenovoIntegrationWSO2Portal_files/am_logo.gif">WSO2 API Manager</li></a>
+							<a target="_blank" href="https://pre.api.lenovo.com:5443/publisher/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Publisher</li></a>
+							<a target="_blank" href="https://pre.api.lenovo.com:5443/store/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Store</li></a>
+							<a href="https://pre.soa.lenovo.com:5443/esb/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/esb_logo.gif">WSO2 ESB</li></a>
+							<a href="https://pre.soa.lenovo.com:5443/dss/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/dss_logo.gif">WSO2 DSS</li></a>
+							<a href="https://pre.soa.lenovo.com:5443/task/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 TASK</li></a>
+							<a href="https://pre.soa.lenovo.com:5443/iadapter/file/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter File</li></a>
+							<a href="https://pre.soa.lenovo.com:5443/iadapter/mq/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter MQ</li></a>
+							<a href="https://pre.soa.lenovo.com:5443/iadapter/apps/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter APPS (SalesForce)</li></a>
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 3 -->	
+					<!-- Menu 4 -->	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseT3" class="collapsed" aria-expanded="false">
+									WSO2 QAS(T3)测试环境
+								</a>
+							</h3>
+						</div>
+						<div id="collapseT3" class="panel-collapse collapse" aria-expanded="true" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseT1Ul">
+							<a target="_blank" href="https://qas-apm.api.lenovo.com:5443/carbon/"><li  ><img src="LenovoIntegrationWSO2Portal_files/am_logo.gif">WSO2 API Manager</li></a>
+							<a target="_blank" href="https://qas.api.lenovo.com:5443/publisher/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Publisher</li></a>
+							<a target="_blank" href="https://qas.api.lenovo.com:5443/store/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Store</li></a>
+							<a href="https://qas.soa.lenovo.com:5443/esb/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/esb_logo.gif">WSO2 ESB</li></a>
+							<a href="https://qas.soa.lenovo.com:5443/dss/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/dss_logo.gif">WSO2 DSS</li></a>
+							<a href="https://qas.soa.lenovo.com:5443/task/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 TASK</li></a>
+							<a href="https://qas.soa.lenovo.com:5443/iadapter/file/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter File</li></a>
+							<a href="https://qas.soa.lenovo.com:5443/iadapter/mq/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter MQ</li></a>
+							<a href="https://qas.soa.lenovo.com:5443/iadapter/apps/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter APPS (SalesForce)</li></a>
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 4 -->	
+					<!-- Menu 5 -->	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseT4" class="collapsed" aria-expanded="false">
+									WSO2 SANDBOX(T4)测试环境
+								</a>
+							</h3>
+						</div>
+						<div id="collapseT4" class="panel-collapse collapse" aria-expanded="true" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseT1Ul">
+							<a target="_blank" href="https://sandbox-apm.api.lenovo.com:5443/carbon/"><li  ><img src="LenovoIntegrationWSO2Portal_files/am_logo.gif">WSO2 API Manager</li></a>
+							<a target="_blank" href="https://sandbox.api.lenovo.com:5443/publisher/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Publisher</li></a>
+							<a target="_blank" href="https://sandbox.api.lenovo.com:5443/store/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Store</li></a>
+							<a href="https://sandbox.soa.lenovo.com:5443/esb/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/esb_logo.gif">WSO2 ESB</li></a>
+							<a href="https://sandbox.soa.lenovo.com:5443/dss/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/dss_logo.gif">WSO2 DSS</li></a>
+							<a href="https://sandbox.soa.lenovo.com:5443/task/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 TASK</li></a>
+							<a href="https://sandbox.soa.lenovo.com:5443/iadapter/file/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter File</li></a>
+							<a href="https://sandbox.soa.lenovo.com:5443/iadapter/mq/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter MQ</li></a>
+							<a href="https://sandbox.soa.lenovo.com:5443/iadapter/apps/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter APPS (SalesForce)</li></a>
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 5 -->	
+					<!-- Menu 6 -->	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed" aria-expanded="false">
+									WSO2 生产环境
+								</a>
+							</h3>
+						</div>
+						<div id="collapseTwo" class="panel-collapse collapse" aria-expanded="false" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseTwoUl">
+							<a target="_blank" href="https://soa.lenovo.com/api-mgt/carbon/"><li ><img src="LenovoIntegrationWSO2Portal_files/am_logo.gif">WSO2 API Manager</li></a>
+							<a target="_blank" href="https://portal.api.lenovo.com/publisher/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Publisher</li></a>
+							<a target="_blank" href="https://portal.api.lenovo.com/store/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Store</li></a>
+							<a href="https://soa.lenovo.com/esb-mgt/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/esb_logo.gif">WSO2 ESB</li></a>
+							<a href="https://soa.lenovo.com/dss-mgt/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/dss_logo.gif">WSO2 DSS</li></a>
+							<a href="https://soa.lenovo.com/task/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 TASK</li></a>
+							<a href="https://soa.lenovo.com/iadapter-file/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter File</li></a>
+							<a href="https://soa.lenovo.com/iadapter-hugefile/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter Huge File</li></a>
+							<a href="https://soa.lenovo.com/iadapter-mq/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter MQ</li></a>
+							<a href="https://soa.lenovo.com/iadapter-apps/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter APPS (Salesforce)</li></a>
+							<a href="https://soa.lenovo.com/is-mgt/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/is_logo.gif">WSO2 IS</li></a>
+							<a href="https://soa.lenovo.com/iadapter-licrm/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter LICRM</li></a>
+							<a href="https://soa.lenovo.com/iadapter-lscrm/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter LSCRM</li></a>
+							<a href="https://soa.lenovo.com/iadapter-ecc/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter ECC</li></a>
+							<a href="https://portal.soa.lenovo.com/portal/" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/das_logo.png">WSO2 DAS Portal </li></a>
+							<a href="https://portal.soa.lenovo.com/carbon/admin/login.jsp" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/das_logo.png">WSO2 DAS Admin </li></a>
+							<a href="https://soa.lenovo.com/logmon/app/kibana#/discover?_g=()" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/elk_logo.jpg">WSO2 LogMonitor </li></a>
+							<a target="_blank" href="http://ipaas.lenovo.com/"><li ><img src="LenovoIntegrationWSO2Portal_files/ipass_logo_new.png">Integration iPass Portal</li></a>
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 6 -->	
+					<!-- Menu 7 -->	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseKM" class="collapsed" aria-expanded="false">
+									 WSO2 Test KM
+								</a>
+							</h3>
+						</div>
+						<div id="collapseKM" class="panel-collapse collapse" aria-expanded="false" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseTwoUl">
+							<a target="_blank" href="https://uat-km.api.lenovo.com:5443/carbon/"><li ><img src="LenovoIntegrationWSO2Portal_files/is_logo.gif">UAT</li></a>
+							<a target="_blank" href="https://pre-km.api.lenovo.com:5443/carbon/"><li ><img src="LenovoIntegrationWSO2Portal_files/is_logo.gif">PRE</li></a>
+							<a target="_blank" href="https://qas-km.api.lenovo.com:5443/carbon/"><li ><img src="LenovoIntegrationWSO2Portal_files/is_logo.gif">QAS</li></a>
+							<a target="_blank" href="https://sandbox-km.api.lenovo.com:5443/carbon/"><li ><img src="LenovoIntegrationWSO2Portal_files/is_logo.gif">SandBox</li></a>
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 7 -->	
+					<!-- Menu 8 -->	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseAWSTest" class="collapsed" aria-expanded="false">
+									AWS WSO2 Test
+								</a>
+							</h3>
+						</div>
+						<div id="collapseAWSTest" class="panel-collapse collapse" aria-expanded="false" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseTwoUl">
+							<a target="_blank" href="https://soaus-test.lenovo.com:8443/api-mgt/carbon/"><li ><img src="LenovoIntegrationWSO2Portal_files/am_logo.gif">WSO2 API Manager</li></a>
+							<a target="_blank" href="https://soaus-test.lenovo.com:8443/publisher/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Publisher</li></a>
+							<a target="_blank" href="https://soaus-test.lenovo.com:8443/store/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Store</li></a>
+							<a href="https://soaus-test.lenovo.com:8443/esb-mgt/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/esb_logo.gif">WSO2 ESB</li></a>
+							<a href="https://soaus-test.lenovo.com:8443/task/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 TASK</li></a>
+							<a href="https://soaus-test.lenovo.com:8443/iadapter-file/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter File</li></a>
+							<a href="https://soaus-test.lenovo.com:8443/iadapter-mq/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter MQ</li></a>		
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 8 -->	
+					<!-- Menu 9 -->	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseAWSProd" class="collapsed" aria-expanded="false">
+									AWS WSO2 PROD
+								</a>
+							</h3>
+						</div>
+						<div id="collapseAWSProd" class="panel-collapse collapse" aria-expanded="false" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseTwoUl">
+							<a target="_blank" href="https://soaus.lenovo.com:8443/api-mgt/carbon/"><li ><img src="LenovoIntegrationWSO2Portal_files/am_logo.gif">WSO2 API Manager</li></a>
+							<a target="_blank" href="https://soaus.lenovo.com:8443/publisher/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Publisher</li></a>
+							<a target="_blank" href="https://soaus.lenovo.com:8443/store/"><li ><img src="LenovoIntegrationWSO2Portal_files/api_logo.gif">WSO2 API Store</li></a>
+							<a href="https://soaus.lenovo.com:8443/esb-mgt/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/esb_logo.gif">WSO2 ESB</li></a>
+							<a href="https://soaus.lenovo.com:8443/task/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 TASK</li></a>
+							<a href="https://soaus.lenovo.com:8443/iadapter-file/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter File</li></a>
+							<a href="https://soaus.lenovo.com:8443/iadapter-mq/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 Iadapter MQ</li></a>		
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 9 -->	
+					<!-- Menu 10 -->	
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed" aria-expanded="false">
+									WSO2 测试 Server IP
+								</a>
+							</h3>
+						</div>
+						<div id="collapseThree" class="panel-collapse collapse" aria-expanded="false" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseThreeUl" ms-each-el="array"><!--<li  class='wso2servers' ><span ms-click="loopClick(el, $event)" class="glyphicon glyphicon-cloud ">{{el}}</span></a></li>-->
+							<li class="wso2servers" ><span class="glyphicon glyphicon-cloud ">10.122.12.140 (Manager：API，ESB，DSS)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.12.141 (API)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.12.142 (API)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.12.143 (ESB)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.12.144 (ESB)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.12.145 (DSS)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.12.146 (DSS)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.12.147 (Production Logs，DAS)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.12.149 (Task)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.22.149 (ECC，LICRM，LSCRM)</span></li>
+							<li class="wso2servers"  ><span class="glyphicon glyphicon-cloud ">10.122.22.150 (File，MQ，SalesForce)</span></li>
+							</ul></div>
+						</div>
+						<!--li class="wso2servers"  ><a href="hosts.txt" target="_blank">      Windows hosts setting</a></li>
+							<li class="wso2servers"  ><a href="lenovo_ca.cer" target="_blank" download="lenovo_ca.cer">      Lenovo CA    </a></li-->
+					</div>
+					<!-- Menu 10 -->	
+					<!-- Menu 11 -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="collapsed" aria-expanded="false">
+									WSO2 附件下载
+								</a>
+							</h3>
+						</div>
+						<div id="collapseFour" class="panel-collapse collapse" aria-expanded="false" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseFourUl" ms-each-el="array"><!--<li  class='wso2servers' ><span ms-click="loopClick(el, $event)" class="glyphicon glyphicon-cloud ">{{el}}</span></a></li>-->
+							<li class="wso2servers"  ><a href="hosts.txt" target="_blank">      Windows hosts setting</a></li>
+							<li class="wso2servers"  ><a href="lenovo_ca.cer" target="_blank" download="LenovoIntegrationWSO2Portal_files/lenovo_ca.cer">      Lenovo CA    </a></li>
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 11 -->
+					<!-- Menu 12 -->
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="collapsed" aria-expanded="false">
+									WSO2 个人本地
+								</a>
+							</h3>
+						</div>
+						<div id="collapseFive" class="panel-collapse collapse" aria-expanded="false" style="height:auto;"><div class="panel-body" style="overflow:auto;"><ul id="collapseFiveUl">
+							<a href="https://localhost:9443/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 9443</li></a>
+							<a href="https://localhost:9444/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 9444</li></a>
+							<a href="https://localhost:9445/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 9445</li></a>
+							<a href="https://localhost:9446/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 9446</li></a>
+							<a href="https://localhost:9447/carbon" target="_blank"><li ><img src="LenovoIntegrationWSO2Portal_files/ei_logo.gif">WSO2 9447</li></a>
+								
+							</ul></div>
+						</div>
+					</div>
+					<!-- Menu 12 -->
+				</div>
+				<!-- Body menu -->
+				
+				
+				
+				<!-- 模态框（Modal） -->
+				<div class="modal fade in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<!-- <div class=" modal-content"> -->
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+									&times;
+								</button>
+								<h4 class="modal-title" id="myModalLabel">
+									请输入清空留言的指令
+								</h4>
+							</div>
+							<div class="modal-body"><input type="password" id="password">
+							</div>
+							<div class="modal-footer">
+								<button id="closeMyModal" type="button" class="btn btn-default" data-dismiss="modal">关闭
+								</button>
+								<button type="button" class="btn btn-primary" onclick="clearStorage('password');">
+									提交更改
+								</button>
+							</div>
+						<!-- </div>/.modal-content -->
+					</div><!-- /.modal -->
+				</div>
+				<!-- 模态框（Modal） -->
+			</div>
+			<!-- Left menu -->
+			<!-- Right body -->
+			<div class="col-md-7 jumbotron">
+				<!--div class="jumbotron" style="margin-top:10px;"-->
+				<!-- Marquee bgcolor="#dce0e5" -->
+				<marquee direction="up"  scrolldelay="0" scrollamount="3" loop="-1" behavior="scroll" hspace="0" vspace="0" onMouseOver="this.stop()" 
+onMouseOut="this.start()" height="50px;" >
+					<p id="wso2_global_board" style="font-size:24px;font-weight: 4;">这是一个公告栏。</p>
+				</marquee>
+				<!-- Marquee  -->
+				<div class="url_font" id="body-content-1" >
+					
+					<!-- Card  -->
+					<div class="alert alert-info alert-dismissable" >
+						<button type="button" class="close" data-dismiss="alert"
+								aria-hidden="true">
+							&times;
+						</button>
+						<a href="https://soa-test.lenovo.com:5443/notes/ " class="alert-link" data-toggle="tooltip" data-placement="right" title="平台相关资料文件夹，供下载!" target="_blank" > 
+					<!--font style="font-size:16px;color:#265C89;">获取<font style="font-size:20px;color:#672B97;">Lenovo Integration WSO2</font>平台相关资料的地址 </font-->
+						获取Lenovo Integration WSO2平台相关资料的地址
+						</a>
+					</div>
+					<!-- Card  -->
+					<!-- Card  -->
+					<div class="alert alert-danger alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert"
+								aria-hidden="true">
+							&times;
+						</button>
+						https://soa-test.lenovo.com/api/oauth2/token<br/>
+						https://soa-test.lenovo.com/api/token<br/>
+						https://soa-test.lenovo.com/api/{api_path}<br/>
+						https://soa-test.lenovo.com/t1/api/oauth2/token<br/>
+						https://soa-test.lenovo.com/t1/api/token<br/>
+						https://soa-test.lenovo.com/t1/api/{api_path}<br/><br/>
+						此为UAT(T1)环境旧地址调用信息，请及时更换为如下最新地址！
+					</div>
+					<!-- Card  -->
+					<!-- Card  -->
+					<div class="card">
+						<div class="card-content">
+							<span class="card-title"><a href="#" data-toggle="tooltip" data-placement="right" title="api_path填写为oauth2/token"><font style="font-size:16px;color:#265C89;">测试环境<font style="font-size:20px;color:#672B97;">Token</font>调用地址</font></a></span>
+							<span class="new badge red" data-badge-caption="New">4</span>
+							<p>
+							https://cn-api-test.lenovo.com/uat/oauth2/token<br/>
+							https://cn-api-test.lenovo.com/pre/oauth2/token<br/>
+							https://cn-api-test.lenovo.com/qas/oauth2/token<br/>
+							https://cn-api-test.lenovo.com/sandbox/oauth2/token<br/>
+							</p>
+						</div>
+						<!-- <div class="card-action">
+						<a href="#">This is a link</a>
+						<a href="#">This is a link</a>
+						</div> -->
+					</div>
+					<!-- Card  -->
+					<!-- Card  -->
+					<div class="card">
+						<div class="card-content">
+							<span class="card-title"><a href="#" data-toggle="tooltip" data-placement="right" title="测试环 API 的调用地址"><font style="font-size:16px;color:#265C89;">测试环境<font style="font-size:20px;color:#672B97;">API</font>调用地址</font></a></span>
+							<span class="new badge red" data-badge-caption="New">4</span>
+							<p>
+								https://cn-api-test.lenovo.com/uat/{api_path}<br/>
+								https://cn-api-test.lenovo.com/pre/{api_path}<br/>
+								https://cn-api-test.lenovo.com/qas/{api_path}<br/>
+								https://cn-api-test.lenovo.com/sandbox/{api_path}<br/>
+							</p>
+						</div>
+					</div>
+					<!-- Card  -->
+					<!-- Card  -->
+					<div class="card">
+						<div class="card-content">
+							<span class="card-title"><a href="#" data-toggle="tooltip" data-placement="right" title="测试环 API GateWay ，供Lenovo内网用户使用"><font style="font-size:16px;color:#265C89;">测试环境<font style="font-size:20px;color:#672B97;">API GW</font>调用地址</font></a></span>
+							<span class="new badge red" data-badge-caption="New">4</span>
+							<p>
+								https://cn-api-test.lenovo.com/uat/gw/{api_path}<br/>
+								https://cn-api-test.lenovo.com/pre/gw/{api_path}<br/>
+								https://cn-api-test.lenovo.com/qas/gw/{api_path}<br/>
+								https://cn-api-test.lenovo.com/sandbox/gw/{api_path}<br/>
+							</p>
+						</div>
+					</div>
+					<!-- Card  -->
+					<!-- Card  -->
+					<div class="card">
+						<div class="card-content">
+							<span class="card-title"><a href="#" data-toggle="tooltip" data-placement="right" title="测试环 ESB http 路径，供测试调用以及程序Endpoint配置使用"><font style="font-size:16px;color:#265C89;">测试环境<font style="font-size:20px;color:#672B97;">ESB http</font>调用地址</font></a></span>
+							<span class="new badge red" data-badge-caption="New">4</span>
+							<p class="url_font">
+								http://t1-bj.esb.elb.lenovo.com:8080/services/{esb_path}<br/>
+								http://t2-bj.esb.elb.lenovo.com:8080/services/{esb_path}<br/>
+								......<br/>
+							</p>
+						</div>
+					</div>
+					<!-- Card  -->
+					<!-- Card  -->
+					<div class="card">
+						<div class="card-content">
+							<span class="card-title"><a href="#" data-toggle="tooltip" data-placement="right" title="测试环 ESB https 路径，供测试调用以及程序Endpoint配置使用"><font style="font-size:16px;color:#265C89;">测试环境<font style="font-size:20px;color:#672B97;">ESB https</font>调用地址</font></a></span>
+							<span class="new badge red" data-badge-caption="New">4</span>
+							<p class="url_font" >
+								https://t1-bj.esb.elb.lenovo.com:8443/services/{esb_path}<br/>
+								https://t2-bj.esb.elb.lenovo.com:8443/services/{esb_path}<br/>
+								......<br/>
+							</p>
+						</div>
+					</div>
+					<!-- Card  -->
+				</div>
+				<!--/div-->
+				
+				<!-- 自助留言板 -->
+				<div class="card" id="body_message_board">
+					<div class="card-action" ><h4 style="margin-bottom:2%;">匿名留言板</h4></div>
+					<div class="card-content">
+						<textarea id="self_message" class="form-control" rows="3"></textarea>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary" onclick="saveStorage('self_message','wso2_global_board')">保存</button>
+							<button type="submit" class="btn btn-default" onclick="clear_message_context('self_message');" >清空内容</button>
+							<button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#myModal" >清空留言板</button>
+							<button type="submit" class="btn btn-default" style="display:none;" onclick="loadStorage('msg');">读取</button>
+						</div>
+					</div>
+				</div>
+				<!-- 自助留言板 -->
+				
+				<!-- 新建便笺 -->
+				<div class="card hide" id="body-content-memo-add">
+					<div class="card-action">
+						Basic Form Elements
+					</div>
+					<div class="card-content">
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s6">
+									<i class="material-icons prefix">account_circle</i>
+									<input id="icon_prefix" type="text" class="validate">
+									<label for="icon_prefix">First Name</label>
+								</div>
+								<div class="input-field col s6">
+									<i class="material-icons prefix">phone</i>
+									<input id="icon_telephone" type="tel" class="validate">
+									<label for="icon_telephone">Telephone</label>
+								</div>
+							</div>
+						</form>
+								
+						<form class="col s12">
+							  <div class="row">
+								<div class="input-field col s12">
+									  <input id="email" type="email" class="validate">
+									  <label for="email" data-error="wrong" data-success="right">Email</label>
+								</div>
+							  </div>
+						</form>
+								
+						<form class="col s12">
+							<div class="row">
+								<div class="input-field col s12">
+									<textarea id="textarea1" class="materialize-textarea"></textarea>
+									<label for="textarea1">Textarea</label>
+								</div>
+							</div>
+						</form>
+ 
+					   	<!-- Switch -->
+					  	<div class="switch">
+							<label>
+							  Off
+								  <input type="checkbox">
+								  <span class="lever"></span>
+							  On
+							</label>
+					  	</div>
+
+						<!-- Disabled Switch -->
+						<div class="switch">
+						<label>
+							  Off
+							  <input disabled type="checkbox">
+							  <span class="lever"></span>
+							  On
+						</label>
+						</div>
+						  
+						<!-- <div class="clearBoth"></div> -->
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary"  >提交</button>
+							<button type="submit" class="btn btn-danger" >取消</button>
+						</div>
+					</div>
+				</div>
+				<!-- 新建便笺 -->
+				
+			</div>
+		</div>
+	</div>
+<footer style="height:40px;">FOOTER</footer>
+</body>
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- jQuery Js -->
+    <!-- <script src="assets/js/jquery-1.10.2.js"></script> -->
+	<!-- Bootstrap Js -->
+    <!-- <script src="assets/js/bootstrap.min.js"></script> -->
+	<script src="assets/materialize/js/materialize.min.js"></script>
+	<!-- Metis Menu Js -->
+    <script src="assets/js/jquery.metisMenu.js"></script>
+    <!-- Morris Chart Js -->
+    <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
+    <script src="assets/js/morris/morris.js"></script>
+	<script src="assets/js/easypiechart.js"></script>
+	<script src="assets/js/easypiechart-data.js"></script>
+	 <script src="assets/js/Lightweight-Chart/jquery.chart.js"></script>
+    <!-- Custom Js -->
+    <script src="assets/js/custom-scripts.js"></script> 
+    <script type="text/javascript" src="./index2.js"></script>
+	<script type="text/javascript" src="./md5.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		loadStorage('wso2_global_board');
+		show_more_content('body-content-1');
+		show_more_content('body_message_board',false);
+		
+	});
+	</script>
+<script>
+	$(function () { $("[data-toggle='tooltip']").tooltip(); });
+	$(function () { $(".tooltip-options a").tooltip({html : true });});
+</script>
+<script>
+    // function load()
+    // {
+    //     alert("WSO2数据页面已加载！");
+    // }
+    // $(function restartWSO2Server() {
+    //
+    //     var id=$(this).parent().siblings('td[name="id"]').text();
+    //     var wso2_invironment=$(this).parent().siblings('td[name="wso2_invironment"]').text();
+    //     var wso2_server=$(this).parent().siblings('td[name="wso2_server"]').text();
+    //     var wso2_offset=$(this).parent().siblings('td[name="wso2_offset"]').text();
+    //     var wso2_port=9443+wso2_offset;
+    //     var wso2Server_RestartUrl="https://"+wso2_server+":"+wso2_port+"/services/ServerAdmin.ServerAdminHttpsSoap12Endpoint";
+    //     $("#wso2RestartServerUrl").attr("value",wso2Server_RestartUrl);
+    //     alert($(this).parent().siblings('td[name="wso2_invironment"]').text());
+    // })
+    // $(document).ready(function(){
+    //     //need to update by yankun at 07.24
+    //     $(".restartWSO2Server").on('click',function(){
+    //         alert("aaaaaaaaaaaa");
+    //         var id=$(this).parent().siblings('td[name="id"]').text();
+    //         var wso2_invironment=$(this).parent().siblings('td[name="wso2_invironment"]').text();
+    //         var wso2_server=$(this).parent().siblings('td[name="wso2_server"]').text();
+    //         var wso2_offset=$(this).parent().siblings('td[name="wso2_offset"]').text();
+    //         var wso2_port=9443+wso2_offset;
+    //         var wso2Server_RestartUrl="https://"+wso2_server+":"+wso2_port+"/services/ServerAdmin.ServerAdminHttpsSoap12Endpoint";
+    //         $("#wso2RestartServerUrl").attr("value",wso2Server_RestartUrl);
+
+    //     });
+    // })
+</script></html>
+

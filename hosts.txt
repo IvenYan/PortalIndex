@@ -1,0 +1,28 @@
+10.122.12.138	t1-bj.esb.elb.lenovo.com
+10.122.12.138 	t2-bj.esb.elb.lenovo.com
+10.122.12.138	t3-bj.esb.elb.lenovo.com
+10.122.12.138	t4-bj.esb.elb.lenovo.com
+
+10.122.12.138	t1-us.esb.elb.lenovo.com
+10.122.12.138 	t2-us.esb.elb.lenovo.com
+10.122.12.138	t3-us.esb.elb.lenovo.com
+10.122.12.138	t4-us.esb.elb.lenovo.com
+
+10.122.12.138	t1-bj.dss.elb.lenovo.com
+10.122.12.138	t2-bj.dss.elb.lenovo.com
+10.122.12.138	t3-bj.dss.elb.lenovo.com
+10.122.12.138 	t4-bj.dss.elb.lenovo.com
+        
+10.122.12.138	t1-us.dss.elb.lenovo.com
+10.122.12.138	t2-us.dss.elb.lenovo.com
+10.122.12.138	t3-us.dss.elb.lenovo.com
+10.122.12.138 	t4-us.dss.elb.lenovo.com
+
+10.122.12.138	pre.soa.lenovo.com
+10.122.12.138	pre.api.lenovo.com
+10.122.12.138	qas.api.lenovo.com 	
+10.122.12.138	qas.soa.lenovo.com
+10.122.12.138 	sandbox.api.lenovo.com
+10.122.12.138 	sandbox.soa.lenovo.com
+
+

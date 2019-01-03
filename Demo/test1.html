@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+#div1
+{
+    width:300px;
+    height:300px;
+    background-color:red;
+    clear:both;
+}
+#btn,#info
+{
+    float:left;
+    margin-bottom:10px;
+}
+#info
+{
+    margin-left:20px;
+}
+</style>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+    $("#btn").click(function(){
+        if($("#div1").css("display")=="none")
+        {
+            $("#info").html("正在显示....");
+            $("#div1").show(600,function(){
+                $("#info").html("显示完毕....");
+            });
+        }else
+        {
+            $("#info").html("正在隐藏....");
+            //$("#div1").hide(8000,function()利用回调函数达到效果
+            $("#div1").hide(600,function(){
+                $("#info").html("隐藏完毕....");
+            });
+        }
+    });
+});
+</script>
+</head>
+<body>
+</body>
+<input type="button" value="切换" id="btn"/>
+<div id="info"></div>
+<div id="div1"></div>
+</html>
